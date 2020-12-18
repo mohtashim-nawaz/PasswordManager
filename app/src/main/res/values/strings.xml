@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">PasswordManager</string>
+    <string name="developer">Developed By: Mohd Mohtashim Nawaz</string>
+    <string name="reason">Developed because: Bored</string>
+</resources>
