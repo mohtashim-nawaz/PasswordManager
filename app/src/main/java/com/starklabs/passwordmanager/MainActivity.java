@@ -74,19 +74,29 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // TO set Master Password
+        // To set Master Password
+        // If already set, display a message
         setMasterPass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                if(checkMasterPass())
+                {
+                   Toast.makeText(MainActivity.this, "Password already set!",Toast.LENGTH_SHORT)
+                    .show();
+                   return;
+                }
                 Intent intent = new Intent(MainActivity.this, SetMasterPass.class);
                 startActivity(intent);
             }
         });
 
+        // If master password is forgotten, it can be set using a security question
+        // To be implemented
         editMasterPass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Implemetation Pending", Toast.LENGTH_SHORT)
+                Toast.makeText(MainActivity.this, "Implementation Pending", Toast.LENGTH_SHORT)
                         .show();
             }
         });

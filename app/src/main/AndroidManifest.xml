@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AddEditAcount"></activity>
+        <activity android:name=".AddEditAccount"></activity>
         <activity android:name=".TotalActivity" />
         <activity android:name=".ResetMasterPass" />
         <activity android:name=".SetMasterPass" />
