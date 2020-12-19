@@ -58,7 +58,7 @@ public class AddEditAccount extends AppCompatActivity {
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                // save the account name and password to the database
             }
         });
 
