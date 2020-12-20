@@ -3,4 +3,11 @@
     <string name="developer">Developed By: Mohd Mohtashim Nawaz</string>
     <string name="reason">Developed because: Bored</string>
     <string name="Developer">Mohd Mohtashim Nawaz</string>
+    <string name="about">
+        This application helps you to manage your passwords by remembering them for you. You can set a single master password
+        to unlock all your passwords and can copy them directly to the clip-board. \n \n
+        Auto-suggestion  provides you a secure hashed password which can be stored, thus, providing high levels of security. \n\n
+        The application is still in beta-testing phase so please send the suggestions to \'nawazmohtashim@gmail.com\' or contribute
+        at \'github.com/mohtashim-nawaz/PasswordManager\'
+    </string>
 </resources>

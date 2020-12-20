@@ -3,6 +3,7 @@ package com.starklabs.passwordmanager;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.SharedPreferences;
+import android.database.SQLException;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -18,6 +19,7 @@ public class AddEditAccount extends AppCompatActivity {
 
     TextInputEditText name, pass;
     MaterialButton suggest, save;
+    DatabaseManager dbManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +61,30 @@ public class AddEditAccount extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // save the account name and password to the database
+                String nameVal = name.getText().toString().trim();
+                String passVal = pass.getText().toString().trim();
+
+                if(nameVal.isEmpty() || passVal.isEmpty())
+                {
+                    Toast.makeText(AddEditAccount.this, "Fill all fields", Toast.LENGTH_SHORT)
+                            .show();
+                    return;
+                }
+
+                // Save to sqlite database
+                dbManager = new DatabaseManager(AddEditAccount.this);
+                try {
+                    dbManager.open();
+                    dbManager.insert(nameVal, passVal);
+                    Toast.makeText(AddEditAccount.this, "Saved!", Toast.LENGTH_SHORT).show();
+                    finish();
+                }
+                catch (SQLException e)
+                {
+                    Toast.makeText(AddEditAccount.this, "Database failure!", Toast.LENGTH_SHORT)
+                            .show();
+                }
+
             }
         });
 
