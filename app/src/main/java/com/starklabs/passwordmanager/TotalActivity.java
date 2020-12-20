@@ -82,7 +82,7 @@ public class TotalActivity extends AppCompatActivity {
         accounts = new Accounts(getApplicationContext()).getAccountsList();
         if(accounts==null)
             return;
-        AccountAdapter adapter = new AccountAdapter(accounts);
+        AccountAdapter adapter = new AccountAdapter(accounts, getApplicationContext());
         mRecyclerView.setAdapter(adapter);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
     }

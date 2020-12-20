@@ -1,11 +1,14 @@
 package com.starklabs.passwordmanager;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -17,6 +20,7 @@ public class AccountAdapter extends
 {
 
     private List<Accounts> mAccounts;
+    Context mContext;
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
@@ -35,13 +39,32 @@ public class AccountAdapter extends
                 @Override
                 public void onClick(View v) {
                     String name = accountName.getText().toString().trim();
+                    String pass = null;
                     for(Accounts obj: mAccounts)
                     {
                         if(obj.getAccountName().equals(name))
                         {
-
+                            pass = obj.getPassword();
                         }
                     }
+                    if(pass!=null)
+                    {
+                        ClipboardManager clipboardManager = (ClipboardManager) mContext.getSystemService(Context.CLIPBOARD_SERVICE);
+                        ClipData clip = ClipData.newPlainText("Password", pass);
+                        clipboardManager.setPrimaryClip(clip);
+                        Toast.makeText(mContext, "Password copied to clipboard!", Toast.LENGTH_SHORT).show();
+                    }
+                    else
+                    {
+                        Toast.makeText(mContext,"Unable to fetch password!", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+
+            passView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
                 }
             });
 
@@ -51,9 +74,10 @@ public class AccountAdapter extends
 
 
     // Constructor to initialize the list
-    public AccountAdapter(List<Accounts> accounts)
+    public AccountAdapter(List<Accounts> accounts, Context context)
     {
         mAccounts = accounts;
+        mContext = context;
     }
 
     @NonNull
