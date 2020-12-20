@@ -16,7 +16,8 @@
         android:src="@drawable/ic_add_black_24dp"
         android:id="@+id/add_new_account"
         android:elevation="10dp"
-        android:layout_margin="15dp"/>
+        android:layout_margin="15dp"
+        android:backgroundTint="@color/colorAccent"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
