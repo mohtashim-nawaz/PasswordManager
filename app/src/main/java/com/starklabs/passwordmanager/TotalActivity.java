@@ -79,10 +79,10 @@ public class TotalActivity extends AppCompatActivity {
     private void setRecyclerView() {
         // Gets the list of accounts and updates on the Recycler view through adapter
 
-        accounts = new Accounts(getApplicationContext()).getAccountsList();
+        accounts = new Accounts(TotalActivity.this).getAccountsList();
         if(accounts==null)
             return;
-        AccountAdapter adapter = new AccountAdapter(accounts, getApplicationContext());
+        AccountAdapter adapter = new AccountAdapter(accounts, TotalActivity.this);
         mRecyclerView.setAdapter(adapter);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
     }

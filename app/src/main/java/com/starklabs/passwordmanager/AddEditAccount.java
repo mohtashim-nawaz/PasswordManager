@@ -76,6 +76,7 @@ public class AddEditAccount extends AppCompatActivity {
                 try {
                     dbManager.open();
                     dbManager.insert(nameVal, passVal);
+                    dbManager.close();
                     Toast.makeText(AddEditAccount.this, "Saved!", Toast.LENGTH_SHORT).show();
                     finish();
                 }

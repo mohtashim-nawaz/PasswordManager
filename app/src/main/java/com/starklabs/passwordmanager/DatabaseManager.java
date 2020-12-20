@@ -54,9 +54,21 @@ public class DatabaseManager
         return cursor;
     }
 
-    public int update(String accName, String pass)
+    public int update(String accName, String pass, String oldName, String oldPass)
     {
         // Update code here
-        return 0;
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(DatabaseHelper.ACC_FIELD, accName);
+        contentValues.put(DatabaseHelper.PASS_FIELD, pass);
+        String cond = DatabaseHelper.ACC_FIELD+" = '"+oldName+"'";
+        int ret = db.update(DatabaseHelper.TABLE_NAME, contentValues, cond, null);
+        return ret;
+    }
+
+    public void delete(String name, String pass)
+    {
+        // Deletion from table
+        String cond = DatabaseHelper.ACC_FIELD +" = '"+name+"'";
+        db.delete(DatabaseHelper.TABLE_NAME, cond, null);
     }
 }

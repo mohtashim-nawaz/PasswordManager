@@ -51,18 +51,18 @@ public class Accounts
             Cursor cursor = dbManager.fetch();
             if(cursor!=null)
             {
-                while(cursor.moveToNext())
+                do
                 {
                     String accName = cursor.getString(0);
                     String pass = cursor.getString(1);
                     Accounts tempObj = new Accounts(accName, pass);
                     accounts.add(tempObj);
-                }
+                }while(cursor.moveToNext());
             }
         }
         catch (Exception e)
         {
-            Toast.makeText(mContext, "Error fetching the data!",Toast.LENGTH_SHORT).show();
+            Toast.makeText(mContext, "Data unavailable!",Toast.LENGTH_SHORT).show();
         }
         return accounts;
     }

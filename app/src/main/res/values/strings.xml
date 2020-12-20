@@ -8,6 +8,7 @@
         to unlock all your passwords and can copy them directly to the clip-board. \n \n
         Auto-suggestion  provides you a secure hashed password which can be stored, thus, providing high levels of security. \n\n
         The application is still in beta-testing phase so please send the suggestions to \'nawazmohtashim@gmail.com\' or contribute
-        at \'github.com/mohtashim-nawaz/PasswordManager\'
+        at \'github.com/mohtashim-nawaz/PasswordManager\' \n\n
+        Please name all your accounts differently.
     </string>
 </resources>

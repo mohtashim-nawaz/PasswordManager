@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AboutActivity"></activity>
+        <activity android:name=".ShowActivity"></activity>
+        <activity android:name=".AboutActivity" />
         <activity android:name=".AddEditAccount" />
         <activity android:name=".TotalActivity" />
         <activity android:name=".ResetMasterPass" />
@@ -29,5 +30,7 @@
             </intent-filter>
         </activity>
     </application>
+
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
 </manifest>
